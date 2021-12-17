@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
+import fetchCount from '../fetchCount'
 
 defineProps<{ msg: string }>()
 
@@ -8,12 +9,20 @@ interface User {
   age: number;
 }
 
-const count = ref(0)
+// We must define the type here since we're getting the inital count from an external source
+const count = ref<number | null>(null)
 
 const user: User = reactive({
   name: 'Admin',
   age: 36
 })
+
+onMounted(() => {
+  fetchCount((initialCount) => {
+    count.value = initialCount
+  })
+})
+
 </script>
 
 <template>
