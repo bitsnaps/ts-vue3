@@ -33,3 +33,6 @@ const user: User = reactive({
   <span>Counter: {{ count }}</span>
 </template>
 ```
+
+## Adding unit testing
+Read more at: https://dev.to/vuesomedev/add-testing-to-vite-4b75
