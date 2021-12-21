@@ -36,3 +36,9 @@ const user: User = reactive({
 
 ## Adding unit testing
 Read more at: https://dev.to/vuesomedev/add-testing-to-vite-4b75
+
+## Testing (not implemented yet)
+Use [Vitest](https://vitest.dev/) for testing:
+```
+npm install -D vitest
+```

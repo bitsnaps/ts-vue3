@@ -10,7 +10,7 @@ interface User {
 }
 
 // We must define the type here since we're getting the inital count from an external source
-const count = ref<number | null>(null)
+const count = ref<number>(0)
 
 const user: User = reactive({
   name: 'Admin',
