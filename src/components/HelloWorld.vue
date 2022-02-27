@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
-import fetchCount from '../fetchCount'
+import { ref, reactive } from 'vue'
+import Counter from './Counter.vue'
 
 defineProps<{ msg: string }>()
 
@@ -9,18 +9,9 @@ interface User {
   age: number;
 }
 
-// We must define the type here since we're getting the inital count from an external source
-const count = ref<number>(0)
-
 const user: User = reactive({
   name: 'Admin',
   age: 36
-})
-
-onMounted(() => {
-  fetchCount((initialCount) => {
-    count.value = initialCount
-  })
 })
 
 </script>
@@ -44,12 +35,16 @@ onMounted(() => {
     |
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
-
-  <button type="button" @click="count++">count is: {{ count }}</button>
+ 
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+
+  <Counter 
+    :limit="10"
+  ></Counter>
+
   <p>Welcome back <b>{{ user.name }}</b>!</p>
 </template>
 
