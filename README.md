@@ -42,6 +42,12 @@ const user: User = reactive({
 </template>
 ```
 
+## Type inference
+TypeScript will use the type `any` if a type is not defined, and will warn you about this ambiguous situation, you can disable the strict mode of TypeScript from the `tsconfig.json` file:
+```
+"strict": false
+```
+
 ## Adding unit testing
 Read more at: https://dev.to/vuesomedev/add-testing-to-vite-4b75
 
