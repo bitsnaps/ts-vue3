@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import fetchCount from '../fetchCount'
+import ControlBar from './ControlBar.vue'
 
 // defineProps is a Compiler Macro which can be used with TypeScript and setup annotation, it allows us to declare props without importing it, it's executed in the compile-time.
 /*const props = defineProps<{ 
@@ -42,7 +43,11 @@ function addCount(num: number){
 <template>
   <div>
     <p>Count: {{ count }}</p>
-    <button type="button" @click="addCount(1)">Add</button>
+    <ControlBar
+      @add-count="addCount"
+      @reset-count="count = 0"
+    >
+    </ControlBar>
   </div>
 </template>
 
